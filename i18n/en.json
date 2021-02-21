@@ -1,0 +1,12 @@
+{
+    "title": "Linecision",
+    "language": {
+        "selection": {
+            "title": "Select language"
+        },
+        "change": "Change language"
+    },
+    "i18n": {
+        "debug": "Debug text"
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "title": "Linecatsion",
+    "language": {
+        "selection": {
+            "title": "Select meows"
+        },
+        "change": "Change meows"
+    },
+    "i18n": {
+        "debug": "Meow"
+    }
+}

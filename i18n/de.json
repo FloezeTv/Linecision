@@ -1,0 +1,11 @@
+{
+    "language": {
+        "selection": {
+            "title": "Sprache wählen"
+        },
+        "change": "Sprache ändern"
+    },
+    "i18n": {
+        "debug": "Entkäfer Text"
+    }
+}
