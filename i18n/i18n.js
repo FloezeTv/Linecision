@@ -28,9 +28,9 @@ const updateI18N = () => {
     load_language('en').then(defaultLanguage => {
         load_language(language).then(languageDict => Object.assign({}, defaultLanguage, languageDict)).then(languageDict => {
             console.log(`loaded language '${language}':`, languageDict);
-            const elements = document.querySelectorAll("[data-i18n]");
+            const elements = document.querySelectorAll('[data-i18n]');
             elements.forEach(element => {
-                const text = element.dataset.i18n.split(".").reduce((obj, i) => obj[i], languageDict);
+                const text = element.dataset.i18n.split('.').reduce((obj, i) => obj[i], languageDict);
                 if (text)
                     element.innerHTML = text;
             });

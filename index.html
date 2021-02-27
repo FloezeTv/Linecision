@@ -9,32 +9,60 @@
     <link href="style.css" rel="stylesheet">
     <script src="script.js"></script>
     <script src="/i18n/i18n.js"></script>
+    <script src="/theme.js"></script>
 </head>
 
-<body>
+<body class="light">
     <!-- header -->
     <header>
-        <h1 data-i18n="title"></h1>
+        <h1 class="title" data-i18n="title"></h1>
+
+        <div class="spacer"></div>
+
+        <!-- theme selection -->
+        <button class="gray" onclick="changeTheme()"
+            style="display: flex; align-items: center; justify-content: center; padding: 3px; width: 64px; height: 64px;">
+            <img class="hide-light" alt="L" src="/icons/sun-fill.svg" height="75%" style="filter: invert();" />
+            <img class="hide-dark" alt="D" src="/icons/moon-fill.svg" height="75%" />
+        </button>
+
+        <!-- Language selection -->
+        <div style="position: relative;">
+            <button class="primary" onclick="document.getElementById('change-language').classList.toggle('invisible')"
+                data-i18n="language.change" style="height:100%;"></button>
+            <fieldset id="change-language" class="gray invisible"
+                onchange="changeLanguage([...document.getElementById('change-language').getElementsByTagName('input')].filter(e => e.checked)[0].value);"
+                onmouseout="const el = event.toElement || event.relatedTarget; if(this == el || this.contains(el)) return; document.getElementById('change-language').classList.add('invisible');">
+                <legend data-i18n="language.selection.title"></legend>
+                <input type="radio" id="change-language-en" name="language" value="en">
+                <div class="label">
+                    <label for="change-language-en">&#127482;&#127480;</label>
+                    <label for="change-language-en">English</label>
+                </div>
+                <input type="radio" id="change-language-de" name="language" value="de">
+                <div class="label">
+                    <label for="change-language-de">&#127465;&#127466;</label>
+                    <label for="change-language-de">Deutsch</label>
+                </div>
+                <input type="radio" id="change-language-ca" name="language" value="ca">
+                <div class="label">
+                    <label for="change-language-ca">&#128008;</label>
+                    <label for="change-language-ca">Lolcat</label>
+                </div>
+                <script type="text/javascript">
+                    document.getElementById('change-language-' + detectLanguage()).checked = true;
+                </script>
+            </fieldset>
+        </div>
     </header>
 
-    <!-- Language selection -->
-    <button onclick="document.getElementById('change-language').classList.toggle('invisible')" data-i18n="language.change"></button>
-    <fieldset id="change-language" class="invisible"
-        onchange="changeLanguage([...document.getElementById('change-language').getElementsByTagName('input')].filter(e => e.checked)[0].value);">
-        <legend data-i18n="language.selection.title"></legend>
-        <input type="radio" id="change-language-en" name="language" value="en">
-        <label for="change-language-en">&#127482;&#127480; English</label>
-        <input type="radio" id="change-language-de" name="language" value="de">
-        <label for="change-language-de">&#127465;&#127466; Deutsch</label>
-        <input type="radio" id="change-language-ca" name="language" value="ca">
-        <label for="change-language-ca">&#128008; Lolcat</label>
-        <script type="text/javascript">
-            document.getElementById('change-language-' + detectLanguage()).checked = true;
-        </script>
-    </fieldset>
+    <!-- call init funcitons that need the body to exist -->
+    <script type="text/javascript">
+        updateTheme();
+    </script>
 
     <!-- debug -->
-    <p data-i18n="i18n.debug"></p>
+    <p data-i18n="i18n.debug" style="animation: fade-display 10s ease;"></p>
 </body>
 
 </html>
