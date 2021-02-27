@@ -9,7 +9,7 @@ const detectLanguage = () => {
 }
 
 const load_language = (lang) => {
-    return fetch('/i18n/' + lang + '.json').then(r => {
+    return fetch('./i18n/' + lang + '.json').then(r => {
         if (r.ok)
             return r.json();
         throw new Error("Couldn't load language!");
