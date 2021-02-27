@@ -8,5 +8,29 @@
     },
     "i18n": {
         "debug": "Meow"
+    },
+    "inputs": {
+        "dimensions": "Dimenshuns",
+        "calculate": "Catulate!"
+    },
+    "outputs": {
+        "question": {
+            "parallel": "R teh linez them same direcshuns?",
+            "same": "R teh linez teh same?",
+            "cuttingpoint": "Do teh linez intercat?",
+            "perpendicular": "R teh linez at them rite anglez?"
+        },
+        "final": {
+            "parallel": "Teh linez are them same direcshuns",
+            "same": "Teh linez r teh same",
+            "none": "Teh linez r crookd and cookd",
+            "cuttingpoint": "Teh linez intercat",
+            "perpendicular": "Teh linez are at them rite anglez indeed"
+        }
+    },
+    "error": {
+        "input": {
+            "nan": "Cat wantz numbrz"
+        }
     }
 }

@@ -8,6 +8,7 @@
     <link href="favicon.ico" rel="icon">
     <link href="style.css" rel="stylesheet">
     <script src="script.js"></script>
+    <script src="/Linecision.js"></script>
     <script src="/i18n/i18n.js"></script>
     <script src="/theme.js"></script>
 </head>
@@ -56,13 +57,85 @@
         </div>
     </header>
 
+    <!-- inputs -->
+    <div id="inputs">
+        <!-- dimensions -->
+        <div>
+            <span data-i18n="inputs.dimensions"></span><span>: </span>
+            <input type="number" min="1" step="1" value="3" size="4"
+                onchange="window.linecision.setDimensons(event.target.value);" style="width: auto" />
+        </div>
+
+        <!-- line 1 -->
+        <div class="line-def" id="line1">
+            <span>g<sub>1</sub> &equals; </span>
+            <div class="vector" id="start1"></div>
+            <span>&plus; &lambda; &times;</span>
+            <div class="vector" id="direction1"></div>
+            <span>&semi; &lambda; &isin; &#8477;</span>
+        </div>
+
+        <!-- line 2 -->
+        <div class="line-def" id="line2">
+            <span>g<sub>2</sub> &equals; </span>
+            <div class="vector" id="start2"></div>
+            <span>&plus; &mu; &times;</span>
+            <div class="vector" id="direction2"></div>
+            <span>&semi; &mu; &isin; &#8477;</span>
+        </div>
+
+        <!-- button -->
+        <button class="secondary" data-i18n="inputs.calculate"
+            onclick="updateFlags(window.linecision.calculate())"></button>
+    </div>
+
+    <!-- output -->
+    <div id="output">
+        <!-- 1 -->
+        <div>
+            <div class="outputitem" id="question-parallel" data-i18n="outputs.question.parallel"></div>
+        </div>
+        <!-- 2 -->
+        <div>
+            <div class="outputitem" id="question-same" data-i18n="outputs.question.same"></div>
+            <div class="outputitem" id="question-cuttingpoint" data-i18n="outputs.question.cuttingpoint"></div>
+        </div>
+        <!-- 3 -->
+        <div>
+            <div class="outputitem" id="final-parallel" data-i18n="outputs.final.parallel"></div>
+            <div class="outputitem" id="final-same" data-i18n="outputs.final.same"></div>
+            <div class="outputitem" id="question-perpendicular" data-i18n="outputs.question.perpendicular"></div>
+            <div class="outputitem" id="final-none" data-i18n="outputs.final.none"></div>
+        </div>
+        <!-- 4 -->
+        <div>
+            <div class="outputitem" id="final-cuttingpoint" data-i18n="outputs.final.cuttingpoint"></div>
+            <div class="outputitem" id="final-perpendicular" data-i18n="outputs.final.perpendicular"></div>
+        </div>
+    </div>
+
     <!-- call init funcitons that need the body to exist -->
     <script type="text/javascript">
         updateTheme();
+
+        window.linecision = new Linecision(
+            {
+                'start': document.getElementById('start1'),
+                'direction': document.getElementById('direction1')
+            },
+            {
+                'start': document.getElementById('start2'),
+                'direction': document.getElementById('direction2')
+            }
+        );
+
+        initScript();
     </script>
 
-    <!-- debug -->
-    <p data-i18n="i18n.debug" style="animation: fade-display 10s ease;"></p>
+    <!-- i18n strings for js -->
+    <div style="display: none">
+        <div id="i18n-error.input.nan" data-i18n="error.input.nan"></div>
+    </div>
 </body>
 
 </html>

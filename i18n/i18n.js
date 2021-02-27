@@ -21,6 +21,23 @@ const changeLanguage = (lang) => {
     updateI18N();
 }
 
+const i18nUpdateListeners = [];
+
+const addI18nUpdateListener = (listener) => {
+    i18nUpdateListeners.push(listener);
+}
+
+const removeI18nUpdateListener = (listener) => {
+    const index = i18nUpdateListeners.indexOf(listener);
+    if (index >= 0)
+        i18nUpdateListeners.splice(index, 1);
+}
+
+// there must be an element in the dom that contains this string with a special id
+// normally at the end (i18n strings for js)
+const getStringForJs = (name) => {
+    return document.getElementById('i18n-' + name).innerHTML;
+}
 
 const updateI18N = () => {
     var language = detectLanguage();
@@ -34,6 +51,7 @@ const updateI18N = () => {
                 if (text)
                     element.innerHTML = text;
             });
+            i18nUpdateListeners.forEach(listener => listener());
         });
     });
 }

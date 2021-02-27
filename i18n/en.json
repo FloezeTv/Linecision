@@ -8,5 +8,29 @@
     },
     "i18n": {
         "debug": "Debug text"
+    },
+    "inputs": {
+        "dimensions": "Dimensions",
+        "calculate": "Calculate!"
+    },
+    "outputs": {
+        "question": {
+            "parallel": "Are the lines parallel?",
+            "same": "Are the lines the same?",
+            "cuttingpoint": "Do the lines intersect?",
+            "perpendicular": "Are the lines perpendicular?"
+        },
+        "final": {
+            "parallel": "The lines are parallel",
+            "same": "The lies are the same",
+            "none": "The lines are crooked",
+            "cuttingpoint": "The lines intersect",
+            "perpendicular": "The lines are perpendicular"
+        }
+    },
+    "error": {
+        "input": {
+            "nan": "Must be a number"
+        }
     }
 }

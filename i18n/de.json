@@ -7,5 +7,29 @@
     },
     "i18n": {
         "debug": "Entkäfer Text"
+    },
+    "inputs": {
+        "dimensions": "Dimensionen",
+        "calculate": "Calculate!"
+    },
+    "outputs": {
+        "question": {
+            "parallel": "Sind die Geraden parallel?",
+            "same": "Sind die Geraden identisch?",
+            "cuttingpoint": "Schneiden sich die Geraden?",
+            "perpendicular": "Sind die Geraden senkrecht?"
+        },
+        "final": {
+            "parallel": "Die geraden sind parallel",
+            "same": "Die Geraden sind identisch",
+            "none": "Die Geraden sind windschief",
+            "cuttingpoint": "Die Geraden schneiden sich",
+            "perpendicular": "Die Geraden sind senkrecht"
+        }
+    },
+    "error": {
+        "input": {
+            "nan": "Muss eine Zahl sein"
+        }
     }
 }
