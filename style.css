@@ -216,3 +216,17 @@ h1.title {
     border: 2px solid var(--color-gray-border);
     border-radius: 10px;
 }
+
+span.vector-symbol {
+    position: relative;
+}
+
+span.vector-symbol::after {
+    position: absolute;
+    content: '\21C0'; /* Right Harpoon with Barb Up */
+    padding: 0px;
+    margin: 0px;
+    left: 50%; /* position in center */
+    top: -1px; /* and slightly on top */
+    transform: translate(-50%, -50%); /* set origin for position to center */
+}
