@@ -221,13 +221,37 @@ class Vector {
         return this.values.length;
     }
 
+    isAllZeros() {
+        for (let value of this.values)
+            if (value !== 0)
+                return false;
+        return true;
+    }
+
     linearDependence(other) {
         this.verifySameDimension(other);
 
-        const fac = other.values[0] / this.values[0];
-        for (let i = 1; i < this.getDimensions(); i++)
-            if (other.values[i] / this.values[i] !== fac)
+        if (this.isAllZeros() || other.isAllZeros())
+            return 0;
+
+        let fac = 0;
+        let setFac = false;
+
+        for (let i = 0; i < this.values.length; i++) {
+            if (this.values[i] === 0 && other.values[i] === 0)
+                continue;
+            if (this.values[i] === 0 || other.values[i] === 0)
                 return NaN;
+
+            if (setFac) {
+                if (this.values[i] / other.values[i] !== fac)
+                    return NaN;
+            } else {
+                fac = this.values[i] / other.values[i];
+                setFac = true;
+            }
+        }
+
         return fac;
     }
 
